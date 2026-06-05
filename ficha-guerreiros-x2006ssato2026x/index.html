@@ -276,18 +276,20 @@ select.finp{cursor:pointer;background:var(--panel);-webkit-appearance:none;}
 
 @media print{
   @page{size:A4 portrait;margin:0;}
-  html,body{width:210mm;margin:0;padding:0;background:#e8dfc8;}
+  html,body{width:210mm;margin:0;padding:0;background:#e8dfc8 !important;}
   .page{
-    margin:0;
-    width:210mm;
-    height:297mm;
-    overflow:hidden;
-    page-break-after:always;
-    break-after:page;
-    box-shadow:none;
+    margin:0 !important;
+    width:210mm !important;
+    height:297mm !important;
+    max-height:297mm !important;
+    overflow:hidden !important;
+    page-break-after:always !important;
+    break-after:page !important;
+    box-shadow:none !important;
   }
-  *{print-color-adjust:exact;-webkit-print-color-adjust:exact;}
-  .title-gm{-webkit-text-fill-color:var(--gold2);color:var(--gold2);background:none;}
+  .page:last-child{page-break-after:auto !important;break-after:auto !important;}
+  *{print-color-adjust:exact !important;-webkit-print-color-adjust:exact !important;}
+  .title-gm{-webkit-text-fill-color:var(--gold2) !important;color:var(--gold2) !important;background:none !important;}
 }
 </style>
 </head>
@@ -480,7 +482,7 @@ select.finp{cursor:pointer;background:var(--panel);-webkit-appearance:none;}
       <span class="vsep">=</span><input class="vin vtot" id="t-div" type="text" readonly>
     </div>
     <div class="cbr cbr-gld">
-      <div><div class="cb-nm" style="color:var(--gold2);">Reiki</div><div class="cb-nt">Energia espiritual</div></div>
+      <div><div class="cb-nm" style="color:var(--gold2);">Controle de Reiki</div><div class="cb-nt">Energia espiritual</div></div>
       <input class="vin" id="b-rei" type="text" maxlength="3" placeholder="—" style="color:var(--gold2);" oninput="calc('rei')">
       <span class="vsep">+</span><input class="vin vbon" id="bon-rei" type="text" maxlength="4" placeholder="—" oninput="calc('rei')">
       <span class="vsep">+</span><input class="vin vef" id="ef-rei" type="text" maxlength="4" placeholder="—" oninput="calc('rei')">
@@ -607,34 +609,8 @@ select.finp{cursor:pointer;background:var(--panel);-webkit-appearance:none;}
     </div>
   </div>
 
-  <!-- REIKI -->
-  <div class="p-gld" style="padding:2mm;margin-bottom:2mm;overflow:hidden;">
-    <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:1.5mm;">
-      <div>
-        <div style="font-family:'Rajdhani',sans-serif;font-size:9pt;letter-spacing:3px;color:var(--gold2);text-transform:uppercase;font-weight:700;">Poder · Reiki</div>
-        <div style="font-size:5.5pt;color:var(--t3);">Máx. padrão 100% · pode exceder</div>
-      </div>
-      <div style="display:flex;gap:1.5mm;align-items:baseline;">
-        <div style="text-align:center;"><input style="width:36px;background:none;border:none;border-bottom:1.5px solid var(--gold-bd);color:var(--t1);font-family:'Bebas Neue',sans-serif;font-size:17pt;font-weight:400;text-align:center;outline:none;letter-spacing:1px;" type="text" placeholder="100"><div style="font-size:5.5pt;color:var(--t2);font-family:'Rajdhani',sans-serif;letter-spacing:1px;text-transform:uppercase;font-weight:700;">Máx.%</div></div>
-        <div style="text-align:center;"><input style="width:36px;background:none;border:none;border-bottom:1.5px solid var(--red-bd);color:var(--red2);font-family:'Bebas Neue',sans-serif;font-size:17pt;font-weight:400;text-align:center;outline:none;letter-spacing:1px;" type="text" placeholder="—"><div style="font-size:5.5pt;color:var(--red2);font-family:'Rajdhani',sans-serif;letter-spacing:1px;text-transform:uppercase;font-weight:700;">Atual%</div></div>
-      </div>
-    </div>
-    <div class="reikbar"><div class="reikfill"></div></div>
-    <div class="reikmarks"><span class="reikmark">10</span><span class="reikmark">20</span><span class="reikmark">30</span><span class="reikmark">40</span><span class="reikmark">50</span><span class="reikmark">60</span><span class="reikmark">70</span><span class="reikmark">80</span><span class="reikmark">90</span><span class="reikmark">100</span></div>
-    <div class="g2" style="margin-top:1.5mm;">
-      <div class="ifield"><span class="ilbl">Reikinomi</span><input class="ival" type="text" maxlength="3" style="font-family:'Rajdhani',sans-serif;font-size:10pt;"></div>
-      <div class="ifield"><span class="ilbl">Grau de Poder</span><input class="ival" type="text" maxlength="2" style="font-family:'Rajdhani',sans-serif;font-size:10pt;"></div>
-    </div>
-    <!-- Poder Oculto — horizontal, sem quebra de linha -->
-    <div style="display:flex;align-items:baseline;gap:2mm;margin-top:1mm;">
-      <span class="flbl" style="white-space:nowrap;flex-shrink:0;">Poder Oculto</span>
-      <input class="ival" type="text" placeholder="—" style="font-size:9.5pt;flex:1;min-width:0;">
-      <span style="font-size:7pt;color:var(--t3);flex-shrink:0;">%</span>
-    </div>
-  </div>
-
   <!-- Prontidão / Precisão / QI / Reflexo com bônus -->
-  <div style="border:1px solid var(--brd);background:var(--panel);overflow:hidden;">
+  <div style="border:1px solid var(--brd);background:var(--panel);overflow:hidden;margin-bottom:2mm;">
     <div style="padding:1mm 2mm;border-bottom:1px solid rgba(26,18,8,.38);">
       <div style="display:grid;grid-template-columns:1fr 32px 8px 28px 8px 28px 8px 32px;align-items:center;">
         <div class="cb-nm">Prontidão</div>
@@ -656,6 +632,13 @@ select.finp{cursor:pointer;background:var(--panel);-webkit-appearance:none;}
       <div class="cb-nt" style="white-space:nowrap;font-size:5pt;padding-top:.3mm;overflow:hidden;text-overflow:ellipsis;">÷2 em combate · mira 1 turno / 6 HEX</div>
     </div>
     <div style="display:grid;grid-template-columns:1fr 32px 8px 28px 8px 28px 8px 32px;align-items:center;padding:1.2mm 2mm;border-bottom:1px solid rgba(26,18,8,.38);">
+      <div class="cb-nm">Reikinomi</div>
+      <input class="vin" id="b-rkn" type="text" maxlength="3" placeholder="—" oninput="calc('rkn')">
+      <span class="vsep">+</span><input class="vin vbon" id="bon-rkn" type="text" maxlength="4" placeholder="—" oninput="calc('rkn')">
+      <span class="vsep">+</span><input class="vin vef" id="ef-rkn" type="text" maxlength="4" placeholder="—" oninput="calc('rkn')">
+      <span class="vsep">=</span><input class="vin vtot" id="t-rkn" type="text" readonly>
+    </div>
+    <div style="display:grid;grid-template-columns:1fr 32px 8px 28px 8px 28px 8px 32px;align-items:center;padding:1.2mm 2mm;border-bottom:1px solid rgba(26,18,8,.38);">
       <div><div class="cb-nm">QI</div></div>
       <input class="vin" id="b-qi" type="text" maxlength="3" placeholder="—" oninput="calc('qi');recalcAll()">
       <span class="vsep">+</span><input class="vin vbon" id="bon-qi" type="text" maxlength="4" placeholder="—" oninput="calc('qi')">
@@ -671,19 +654,6 @@ select.finp{cursor:pointer;background:var(--panel);-webkit-appearance:none;}
         <div class="qirow"><span class="qinm">Vivência</span><input class="qival" type="text" placeholder="—"></div>
       </div>
     </div>
-    <!-- Reikinomi — styled like main attributes (Força, Vigor level) -->
-    <div style="border-bottom:1px solid rgba(26,18,8,.38);">
-      <div style="background:var(--pnl-hd);padding:.8mm 2mm;border-bottom:1px solid var(--brd);">
-        <span style="font-family:'Rajdhani',sans-serif;font-size:8pt;font-weight:700;letter-spacing:3px;text-transform:uppercase;color:var(--t1);">Reikinomi</span>
-      </div>
-      <div style="display:grid;grid-template-columns:1fr 32px 8px 28px 8px 28px 8px 32px;align-items:center;padding:.8mm 2mm;">
-        <span style="font-size:5.5pt;color:var(--t3);font-family:'Rajdhani',sans-serif;letter-spacing:1px;">Nível de domínio do Reiki</span>
-        <input class="vin" id="b-rkn" type="text" maxlength="3" placeholder="—" oninput="calc('rkn')">
-        <span class="vsep">+</span><input class="vin vbon" id="bon-rkn" type="text" maxlength="4" placeholder="—" oninput="calc('rkn')">
-        <span class="vsep">+</span><input class="vin vef" id="ef-rkn" type="text" maxlength="4" placeholder="—" oninput="calc('rkn')">
-        <span class="vsep">=</span><input class="vin vtot" id="t-rkn" type="text" readonly>
-      </div>
-    </div>
     <div style="padding:1.2mm 2mm;display:flex;align-items:center;justify-content:space-between;">
       <div class="cb-nm">Reflexo</div>
       <div class="rrow">
@@ -696,11 +666,28 @@ select.finp{cursor:pointer;background:var(--panel);-webkit-appearance:none;}
     </div>
   </div>
 
-  <!-- HABILIDADES DE CLASSE -->
-  <div style="margin-top:2mm;"></div>
-  <div class="stitle stitle-sm">Habilidades de Classe</div>
-  <div style="border:1px solid var(--brd);background:var(--panel);padding:0;overflow:hidden;" id="hab-class-box">
-    <div style="display:flex;flex-direction:column;gap:0;" id="hab-class-list"></div>
+  <!-- REIKI — logo após Reflexo -->
+  <div class="p-gld" style="padding:2mm;margin-bottom:2mm;overflow:hidden;">
+    <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:1.5mm;">
+      <div>
+        <div style="font-family:'Rajdhani',sans-serif;font-size:9pt;letter-spacing:3px;color:var(--gold2);text-transform:uppercase;font-weight:700;">Poder · Reiki</div>
+        <div style="font-size:5.5pt;color:var(--t3);">Máx. padrão 100% · pode exceder</div>
+      </div>
+      <div style="display:flex;gap:1.5mm;align-items:baseline;">
+        <div style="text-align:center;"><input style="width:36px;background:none;border:none;border-bottom:1.5px solid var(--gold-bd);color:var(--t1);font-family:'Bebas Neue',sans-serif;font-size:17pt;font-weight:400;text-align:center;outline:none;letter-spacing:1px;" type="text" placeholder="100"><div style="font-size:5.5pt;color:var(--t2);font-family:'Rajdhani',sans-serif;letter-spacing:1px;text-transform:uppercase;font-weight:700;">Máx.%</div></div>
+        <div style="text-align:center;"><input style="width:36px;background:none;border:none;border-bottom:1.5px solid var(--red-bd);color:var(--red2);font-family:'Bebas Neue',sans-serif;font-size:17pt;font-weight:400;text-align:center;outline:none;letter-spacing:1px;" type="text" placeholder="—"><div style="font-size:5.5pt;color:var(--red2);font-family:'Rajdhani',sans-serif;letter-spacing:1px;text-transform:uppercase;font-weight:700;">Atual%</div></div>
+      </div>
+    </div>
+    <div class="reikbar"><div class="reikfill"></div></div>
+    <div class="reikmarks"><span class="reikmark">10</span><span class="reikmark">20</span><span class="reikmark">30</span><span class="reikmark">40</span><span class="reikmark">50</span><span class="reikmark">60</span><span class="reikmark">70</span><span class="reikmark">80</span><span class="reikmark">90</span><span class="reikmark">100</span></div>
+    <div class="g2" style="margin-top:1.5mm;">
+      <div class="ifield"><span class="ilbl">Grau de Poder</span><input class="ival" type="text" maxlength="2" style="font-family:'Rajdhani',sans-serif;font-size:10pt;"></div>
+    </div>
+    <div style="display:flex;align-items:baseline;gap:2mm;margin-top:1mm;">
+      <span class="flbl" style="white-space:nowrap;flex-shrink:0;">Poder Oculto</span>
+      <input class="ival" type="text" placeholder="—" style="font-size:9.5pt;flex:1;min-width:0;">
+      <span style="font-size:7pt;color:var(--t3);flex-shrink:0;">%</span>
+    </div>
   </div>
 </div>
 
@@ -712,7 +699,7 @@ select.finp{cursor:pointer;background:var(--panel);-webkit-appearance:none;}
   <div style="border:1px solid var(--brd);background:var(--panel);margin-bottom:1.5mm;overflow:hidden;">
     <div class="cmrow"><div><div class="cmnm">Destreza</div><div class="cmfm">Precisão(tot) ÷ 2</div></div><input class="cmval" id="cm-dest" type="text" readonly><span class="cmpct">%</span></div>
     <div class="cmrow"><div><div class="cmnm">Físico</div><div class="cmfm">Vigor + Força + 10 · máx.80% criação</div></div><input class="cmval" id="cm-fisico" type="text" readonly><span class="cmpct">%</span></div>
-    <div class="cmrow"><div><div class="cmnm">Noção Furtiva</div><div class="cmfm">(Dest÷2)+(Int(tot)÷2)</div></div><input class="cmval" id="cm-furt" type="text" readonly><span class="cmpct">%</span></div>
+    <div class="cmrow"><div><div class="cmnm">Furtividade</div><div class="cmfm">(Dest÷2)+(Int(tot)÷2)</div></div><input class="cmval" id="cm-furt" type="text" readonly><span class="cmpct">%</span></div>
     <div class="cmrow"><div><div class="cmnm">Social</div><div class="cmfm">Int(tot)÷2 + 5%</div></div><input class="cmval" id="cm-social" type="text" readonly><span class="cmpct">%</span></div>
     <div class="cmrow"><div><div class="cmnm">Percepção</div><div class="cmfm">Prontidão(tot) ÷ 2</div></div><input class="cmval" id="cm-percep" type="text" readonly><span class="cmpct">%</span></div>
     <div class="cmrow"><div><div class="cmnm">Raciocínio</div><div class="cmfm">Int(tot) ÷ 2</div></div><input class="cmval" id="cm-racio" type="text" readonly><span class="cmpct">%</span></div>
@@ -730,6 +717,8 @@ select.finp{cursor:pointer;background:var(--panel);-webkit-appearance:none;}
       <div>
         <div class="velir"><span class="velml">Bônus ação</span><input class="velmv" id="vel-bonus" type="text" readonly><span style="font-size:5.5pt;color:var(--t3);">%</span></div>
         <div class="velir"><span class="velml">Soma</span><input class="velmv" id="vel-soma" type="text" readonly></div>
+        <div class="velir"><span class="velml" style="color:var(--gold2);">Treino +V</span><input class="velmv" id="vel-treino" type="text" placeholder="0" oninput="recalcAll()" style="color:var(--gold2);border-bottom-color:var(--gold-bd);"></div>
+        <div class="velir"><span class="velml" style="color:var(--red2);">Red. Vel.</span><input class="velmv" id="vel-red" type="text" readonly style="color:var(--red2);border-bottom-color:var(--red-bd);"></div>
       </div>
     </div>
     <div style="padding:1.2mm 2mm;">
@@ -826,13 +815,10 @@ select.finp{cursor:pointer;background:var(--panel);-webkit-appearance:none;}
 <div style="border:1px solid var(--brd);margin-bottom:2mm;">
   <table class="tech-t">
     <thead><tr>
-      <th style="width:15%">Nome</th>
-      <th style="width:6%">Rank</th>
-      <th style="width:8%">Reiki %</th>
-      <th style="width:9%">Dano/Atrib.</th>
-      <th style="width:8%">Distância</th>
-      <th style="width:6%">Turnos</th>
-      <th>Efeito / Descrição — área, condições, consequências ao alvo</th>
+      <th style="width:22%">Nome</th>
+      <th style="width:8%">Rank</th>
+      <th style="width:10%">Reiki %</th>
+      <th>Efeito / Descrição completa — condições de ativação, área, consequências ao alvo</th>
     </tr></thead>
     <tbody id="tech-body"></tbody>
   </table>
@@ -979,8 +965,21 @@ function recalcAll(){
   const idade = v('inp-idade'), altura = v('inp-altura'), peso = v('inp-peso');
   const preTotal = vi('t-pre'), proTotal = vi('t-pro'), qiTotal = vi('t-qi');
 
-  // RF
-  set('out-rf', pv ? pv*4 : '');
+  // Equipment sums (RF and Redução Vel from weapon cards)
+  let equipRF = 0, equipRV = 0;
+  for(let i=1;i<=5;i++){
+    equipRF += parseInt(document.getElementById('weap-rf-'+i)?.value)||0;
+    equipRV += parseInt(document.getElementById('weap-rv-'+i)?.value)||0;
+  }
+  // Sync Redução Vel display
+  set('vel-red', equipRV || '');
+
+  // RF = PV × 4 + weight bonus + equipment RF
+  let rfVal = pv ? pv*4 : 0;
+  if(peso > 120) rfVal += 40;
+  else if(peso >= 91) rfVal += 20;
+  rfVal += equipRF;
+  set('out-rf', rfVal || '');
 
   // Atributos Complementares
   const dest = preTotal ? Math.floor(preTotal/2) : '';
@@ -1017,15 +1016,17 @@ function recalcAll(){
   set('vel-soma', (forca||vigor||pv||refLevel||idade||altura||peso) ? soma : '');
 
   const vLevel = somaToVLevel(soma);
-  const vBon = VBONUS[String(vLevel)] ?? 0;
+  const treino = parseInt(document.getElementById('vel-treino')?.value)||0;
+  const vLevelFinal = vLevel + treino - equipRV;
+  const vBon = VBONUS[String(Math.max(-4,Math.min(6,vLevelFinal)))] ?? 0;
   const hasVData = forca||vigor||pv||refLevel||idade||altura||peso;
-  set('vel-nivel', hasVData ? (vLevel >= 0 ? String(vLevel) : String(vLevel)) : '');
-  set('vel-bonus', hasVData ? (vBon > 0 ? '+'+vBon+'%' : vBon+'%') : '');
+  set('vel-nivel', hasVData||treino||equipRV ? String(vLevelFinal) : '');
+  set('vel-bonus', hasVData||treino||equipRV ? (vBon > 0 ? '+'+vBon+'%' : vBon+'%') : '');
 
   // Deslocamento HEX — per book: Vigor + V + Força + bônus Idade(desloc) + bônus Altura(desloc)
   const dId = idade ? dBonIdade(idade) : 0;
   const dAlt = altura ? dBonAltura(altura) : 0;
-  const hexSum = vigor + vLevel + forca + dId + dAlt;
+  const hexSum = vigor + vLevelFinal + forca + dId + dAlt;
   const hexN = hasVData ? hexFromSum(hexSum) : null;
   set('desloc-normal', hexN !== null ? hexN : '');
 
@@ -1058,9 +1059,14 @@ function fillHum(el,v2){
 // ── TÉCNICAS ──
 const tb=document.getElementById('tech-body');
 const ro=['','E','D','C','B','A','S','SS'].map(r=>`<option value="${r}">${r||'—'}</option>`).join('');
-for(let i=0;i<10;i++){
+for(let i=0;i<8;i++){
   const tr=document.createElement('tr');
-  tr.innerHTML=`<td><input type="text" placeholder="Nome…"></td><td><select>${ro}</select></td><td><input type="text" placeholder="%" maxlength="5"></td><td><input type="text" placeholder="—"></td><td><input type="text" placeholder="m/HEX"></td><td><input type="text" placeholder="t"></td><td><input type="text" placeholder="Efeito, área, condições, consequências e duração…"></td>`;
+  tr.innerHTML=`
+    <td style="vertical-align:top;padding-top:2mm;"><input type="text" placeholder="Nome…"></td>
+    <td style="vertical-align:top;padding-top:2mm;"><select>${ro}</select></td>
+    <td style="vertical-align:top;padding-top:2mm;"><input type="text" placeholder="%" maxlength="5"></td>
+    <td style="vertical-align:top;"><textarea style="width:100%;background:none;border:none;border-bottom:1px solid rgba(200,144,24,.13);color:var(--t1);font-family:'Exo 2',sans-serif;font-size:8.5pt;outline:none;resize:none;min-height:12mm;padding:.3mm;" placeholder="Descreva o efeito, condições de ativação, área de alcance, consequências ao alvo e duração…"></textarea></td>
+  `;
   tb.appendChild(tr);
 }
 
@@ -1119,8 +1125,6 @@ function updateDmgSquares(pvVal){
 
 // ── ARMAS & EQUIPAMENTOS (cards verticais) ──
 const weapList = document.getElementById('weap-list');
-const tiposDano = ['','Contusão','Cortante','Perfurante','Reiki','Bala','Explosão'];
-const tipoOpts = tiposDano.map(d=>`<option>${d}</option>`).join('');
 for(let i=1;i<=5;i++){
   const card = document.createElement('div');
   card.className = 'weap-card';
@@ -1128,38 +1132,21 @@ for(let i=1;i<=5;i++){
     <div class="weap-r">
       <span class="weap-num">${i}</span>
       <span class="wlbl">Nome</span>
-      <input class="winp" type="text" placeholder="Arma / modelo…">
-      <span class="wlbl" style="margin-left:1mm;">Fio</span>
-      <input class="winp winp-sm" type="text" placeholder="—" maxlength="2">
+      <input class="winp" type="text" placeholder="Arma / Armadura…">
     </div>
-    <div class="weap-r">
-      <span class="wlbl">Tipo</span>
-      <select class="wsel">${tipoOpts}</select>
-      <span class="wlbl" style="margin-left:1mm;">Dano</span>
+    <div class="weap-r" style="flex-wrap:wrap;">
+      <span class="wlbl">Fio</span>
+      <input class="winp winp-sm" type="text" placeholder="—" maxlength="3">
+      <span class="wlbl" style="margin-left:1.5mm;">Dano</span>
       <input class="winp winp-md" type="text" placeholder="—">
+      <span class="wlbl" style="margin-left:1.5mm;">RF</span>
+      <input class="winp winp-sm" id="weap-rf-${i}" type="text" placeholder="—" maxlength="4" oninput="recalcAll()">
+      <span class="wlbl" style="margin-left:1.5mm;">Red.V.</span>
+      <input class="winp winp-sm" id="weap-rv-${i}" type="text" placeholder="—" maxlength="2" oninput="recalcAll()">
     </div>`;
   weapList.appendChild(card);
 }
 
-// ── HABILIDADES DE CLASSE ──
-const habList = document.getElementById('hab-class-list');
-for(let i=1;i<=4;i++){
-  const row = document.createElement('div');
-  row.style.cssText='display:flex;align-items:baseline;gap:1.5mm;padding:1mm 2mm;border-bottom:1px solid rgba(26,18,8,.22);';
-  row.innerHTML=`
-    <span style="font-family:'Bebas Neue',sans-serif;font-size:9pt;color:var(--gold2);letter-spacing:1px;flex-shrink:0;line-height:1;">${i}</span>
-    <input style="flex:1;background:none;border:none;border-bottom:1px solid var(--line);color:var(--t1);font-family:'Exo 2',sans-serif;font-size:8.5pt;outline:none;min-width:0;" type="text" placeholder="Habilidade de classe…">
-  `;
-  habList.appendChild(row);
-}
-// last row without border
-const lastRow = document.createElement('div');
-lastRow.style.cssText='display:flex;align-items:baseline;gap:1.5mm;padding:1mm 2mm;';
-lastRow.innerHTML=`
-  <span style="font-family:'Bebas Neue',sans-serif;font-size:9pt;color:var(--gold2);letter-spacing:1px;flex-shrink:0;line-height:1;">5</span>
-  <input style="flex:1;background:none;border:none;border-bottom:1px solid var(--line);color:var(--t1);font-family:'Exo 2',sans-serif;font-size:8.5pt;outline:none;min-width:0;" type="text" placeholder="Habilidade de classe…">
-`;
-habList.appendChild(lastRow);
 </script>
 </body>
 </html>
